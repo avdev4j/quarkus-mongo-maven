@@ -1,0 +1,22 @@
+package org.acme;
+
+import org.acme.db.TestEntity;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/hello")
+public class ExampleResource {
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        TestEntity entity = new TestEntity();
+        entity.name = "a";
+        entity.persist();
+
+        return "hello";
+    }
+}
